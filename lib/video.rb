@@ -22,10 +22,10 @@ module GC
       provider == :youtube
     end
 
-    def embed dim='560x315'
+    def embed dim='560x315', options={}
+      options[:load] = true if options[:load].nil?
       h,w = dim.split('x')
-      %(<iframe width="#{h}" height="#{w}" src="http://www.youtube.com/embed/#{id}&html5=1" frameborder="0" allowfullscreen></iframe>) if youtube?
+      %(<iframe width="#{h}" height="#{w}" #{options[:load] ? 'src' : 'data-src'}="http://www.youtube.com/embed/#{id}?html5=1" frameborder="0" allowfullscreen></iframe>) if youtube?
     end
-
   end
 end

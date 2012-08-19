@@ -24,7 +24,11 @@ describe GC::Video do
   end
 
   it 'outputs provider recommended code to embed' do
-    video.embed('1024x768').should == %(<iframe width="1024" height="768" src="http://www.youtube.com/embed/t9LMOydfc4k&html5=1" frameborder="0" allowfullscreen></iframe>)
+    video.embed('1024x768').should == %(<iframe width="1024" height="768" src="http://www.youtube.com/embed/t9LMOydfc4k?html5=1" frameborder="0" allowfullscreen></iframe>)
+  end
+
+  it 'outputs provider recommended code without the src attribute' do
+    video.embed('1024x768', load: false).should == %(<iframe width="1024" height="768" data-src="http://www.youtube.com/embed/t9LMOydfc4k?html5=1" frameborder="0" allowfullscreen></iframe>)
   end
 end
 
