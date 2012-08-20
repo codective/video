@@ -5,8 +5,8 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Sam Buna"]
   gem.email         = ["codective@gmail.com"]
   gem.description   = %q{Parse and consume video links}
-  gem.summary       = %q{Parse and consume video links}
-  gem.homepage      = ""
+  gem.summary       = %q{Parse and consume video links. Only youtube links are supported so far}
+  gem.homepage      = "https://github.com/codective/video"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
