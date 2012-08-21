@@ -25,7 +25,18 @@ module GC
     def embed dim='560x315', options={}
       options[:load] = true if options[:load].nil?
       h,w = dim.split('x')
-      %(<iframe width="#{h}" height="#{w}" #{options[:load] ? 'src' : 'data-src'}="http://www.youtube.com/embed/#{id}?html5=1" frameborder="0" allowfullscreen></iframe>) if youtube?
+      if youtube?
+        @embed = %(<iframe width="#{h}" height="#{w}" #{options[:load] ? 'src' : 'data-src'}="http://www.youtube.com/embed/#{id}?html5=1")
+        options.each do | k,v|
+          next if k == :load
+          @embed += %( data-#{k}="#{v}")
+        end
+        @embed += %( frameborder="0" allowfullscreen></iframe>)
+      end
+    end
+
+    def thumbnail size=:default
+      "//img.youtube.com/vi/#{id}/#{size == :full ? '0' : 'default'}.jpg" if youtube?
     end
   end
 end
