@@ -23,9 +23,10 @@ Only youtube links are supported so far
                 frameborder="0" allowfullscreen>
         </iframe>
 
-    link.embed('560x315', load: false, attr1: 'value1')
+    link.embed('560x315', load: false, thumbnail: :full, attr1: 'value1')
      => <iframe width="560" height="315"
                 data-src="http://www.youtube.com/embed/t9LMOydfc4k&html5=1"
                 data-attr1="value1"
+                data-thumbnail="//img.youtube.com/vi/t9LMOydfc4k/0.jpg"
                 frameborder="0" allowfullscreen>
         </iframe>
