@@ -17,9 +17,9 @@ Only youtube links are supported so far
     link.thumbnail => "//img.youtube.com/vi/t9LMOydfc4k/default.jpg"
     link.thumbnail(:full) => "//img.youtube.com/vi/t9LMOydfc4k/0.jpg"
 
-    link.embed('560x315')
+    link.embed('560x315', autoplay: true)
      => <iframe width="560" height="315"
-                src="http://www.youtube.com/embed/t9LMOydfc4k&html5=1"
+                src="http://www.youtube.com/embed/t9LMOydfc4k&html5=1&autoplay=1"
                 frameborder="0" allowfullscreen>
         </iframe>
 

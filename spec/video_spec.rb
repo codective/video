@@ -48,6 +48,10 @@ describe GC::Video do
     it 'supports thumbnail' do
       video.embed('1024x768', thumbnail: :full).should == %(<iframe width="1024" height="768" src="http://www.youtube.com/embed/t9LMOydfc4k?html5=1" data-thumbnail="//img.youtube.com/vi/t9LMOydfc4k/0.jpg" frameborder="0" allowfullscreen></iframe>)
     end
+
+    it 'supports autoplay' do
+      video.embed('1024x768', autoplay: true).should == %(<iframe width="1024" height="768" src="http://www.youtube.com/embed/t9LMOydfc4k?html5=1&autoplay=1" frameborder="0" allowfullscreen></iframe>)
+    end
   end
 
 end

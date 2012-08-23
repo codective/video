@@ -26,9 +26,9 @@ module GC
       options[:load] = true if options[:load].nil?
       h,w = dim.split('x')
       if youtube?
-        @embed = %(<iframe width="#{h}" height="#{w}" #{options[:load] ? 'src' : 'data-src'}="http://www.youtube.com/embed/#{id}?html5=1")
+        @embed = %(<iframe width="#{h}" height="#{w}" #{options[:load] ? 'src' : 'data-src'}="http://www.youtube.com/embed/#{id}?html5=1#{options[:autoplay] ? '&autoplay=1' : ''}")
         options.each do | k,v|
-          next if k == :load
+          next if [:load, :autoplay].include?(k)
           v = thumbnail(v) if k == :thumbnail
           @embed += %( data-#{k}="#{v}")
         end
